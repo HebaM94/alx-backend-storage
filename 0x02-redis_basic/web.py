@@ -18,11 +18,11 @@ def track_get_page(fn: Callable) -> Callable:
             - tracks how many times get_page is called
         """
         client.incr(f'count:{url}')
-        cached_page = client.get(f'{url}')
+        cached_page = client.get(f'result:{url}')
         if cached_page:
             return cached_page.decode('utf-8')
         response = fn(url)
-        client.set(f'{url}', response, ex=10)
+        client.set(f'result:{url}', response, ex=10)
         return response
     return wrapper
 
