@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Redis Basics"""
+""" Redis Basics """
 import redis
 from typing import Any, Callable, Optional, Union
 from uuid import uuid4
