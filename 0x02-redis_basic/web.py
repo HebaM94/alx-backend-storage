@@ -34,3 +34,9 @@ def get_page(url: str) -> str:
         a particular URL and returns it"""
     response = requests.get(url)
     return response.text
+
+
+if __name__ == "__main__":
+    url = "http://google.com"
+    print(get_page(url))
+    print("Count:", client.get(f'count:{url}').decode('utf-8'))
