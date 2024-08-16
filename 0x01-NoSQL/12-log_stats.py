@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Aggregation operations
-"""
+""" Aggregation operations """
 from pymongo import MongoClient
 from typing import Tuple
 
@@ -9,7 +7,7 @@ from typing import Tuple
 def get_nginx_stats() -> Tuple:
     """
     Queries nginx collection for specific data
-    - Returns:
+    Return:
         - count of all documents
         - count of each method in the collection
         - count of each GET calls to /status path
@@ -30,9 +28,7 @@ def get_nginx_stats() -> Tuple:
 
 
 def print_nginx_stats() -> None:
-    """
-    Prints stats from nginx query
-    """
+    """ Prints stats from nginx query """
     doc_count, method_stats, status_path_stats = get_nginx_stats()
     print(f'{doc_count} logs')
     print('Methods:')
