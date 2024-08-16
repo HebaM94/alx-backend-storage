@@ -22,8 +22,9 @@ def track_get_page(fn: Callable) -> Callable:
         if cached_page:
             return cached_page.decode('utf-8')
         response = fn(url)
-        client.setex(f'result:{url}', 10, response)
+        client.set(f'result:{url}', response, 10)
         return response
+
     return wrapper
 
 
